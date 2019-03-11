@@ -1,0 +1,9 @@
+<h1>タスク一覧</h1>
+<ul>
+<% @tasks.each do |task| %>
+  <li><%= link_to task.title, task %><%= task.created_at.strftime('%Y/%m/%d') %></li>
+<% end %>
+</ul>
+
+<%= link_to '出品する', "#" %>
+<%= link_to '非表示一覧', "#" %>
