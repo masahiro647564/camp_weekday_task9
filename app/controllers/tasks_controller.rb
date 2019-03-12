@@ -13,6 +13,31 @@ class TasksController < ApplicationController
   end
 
   def create
+    @task = Task.new(task_params)
+    @task.save
+    redirect_to @task, notice: "タスクを登録しました｡"
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    redirect_to @task
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to @task
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :memo, :is_display, :status)
   end
 
   
