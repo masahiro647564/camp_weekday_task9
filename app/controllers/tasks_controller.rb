@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [ :show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.order(created_at: :desc).limit(5)
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def new
@@ -14,22 +14,27 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save
-    redirect_to @task, notice: "タスクを登録しました｡"
+    if @task.save
+      flash[:notice] = "タスクを登録しました｡"
+      redirect_to @task
+    else
+      render :new
+    end
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
-    @task.update(task_params)
-    redirect_to @task
+    if @task.update(task_params)
+      flash[:notice] = "タスクを更新しました｡"
+      redirect_to @task
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @task = Task.find(params[:id])
     @task.destroy
     redirect_to @task
   end
@@ -38,6 +43,10 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:title, :memo, :is_display, :status)
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
   end
 
   
