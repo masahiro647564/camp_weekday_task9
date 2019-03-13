@@ -16,7 +16,7 @@
 </p>
 <p>
   <%= form.label :状態 %>
-  <%= form.select :integer, [["下書き(draft)", "0"], ["公開(published)", "1"], ["アーカイブ(archived)", "2" ]] %>
+  <%= form.select :status, [["下書き", "draft"], ["公開", "published"], ["アーカイブ", "archieved" ]],class:"form-control" %>
 </p>
 
 

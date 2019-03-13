@@ -26,3 +26,12 @@ Task.create(
   created_at: '2019-02-07',
   updated_at: '2019-02-07'
 )
+
+Task.create(
+  title: '今日の牛丼',
+  memo: '松屋でも吉野家でも牛丼はめっちゃうまいですよ？',
+  is_display: false,
+  status: 0,
+  created_at: '2019-02-07',
+  updated_at: '2019-02-07'
+)

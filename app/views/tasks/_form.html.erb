@@ -1,10 +1,10 @@
 <%= form_with model: @task, local: true do |form| %>
 <p>
-  <%= form.label :title %><br>
+  <%= form.label :タスク名 %><br>
   <%= form.text_field :title %>
 </p>
 <p>
-  <%= form.label :memo %><br>
+  <%= form.label :タスクメモ %><br>
   <%= form.text_area :memo %>
 </p>
 <p>
