@@ -34,7 +34,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to @task
+    redirect_to tasks_path
   end
 
   def hide
