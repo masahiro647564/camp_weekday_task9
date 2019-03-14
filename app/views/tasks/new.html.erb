@@ -1,24 +1,19 @@
 <h1>タスク登録フォーム</h1>
+<%= render 'shared/error' %>
 
 <%= form_with model: @task, local: true do |form| %>
-  <% @task.errors.full_messages.each do |message| %>
-    <div class="form-error">
-      <%= message %>
-    </div>
-  <% end %>
-
-<p>
-  <%= form.label :タスク名 %><br>
-  <%= form.text_field :title %>
-</p>
-<p>
-  <%= form.label :タスクメモ %><br>
-  <%= form.text_area :memo %>
-</p>
-<p>
-  <%= form.label :状態 %>
-  <%= form.select :status, [["下書き", "draft"], ["公開", "published"], ["アーカイブ", "archieved" ]],class:"form-control" %>
-</p>
+  <p>
+    <%= form.label :タスク名 %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :タスクメモ %><br>
+    <%= form.text_area :memo %>
+  </p>
+  <p>
+    <%= form.label :状態 %>
+    <%= form.select :status, [["下書き", "draft"], ["公開", "published"], ["アーカイブ", "archieved" ]],class:"form-control" %>
+  </p>
 
 
 <%= form.submit :登録 %><br>

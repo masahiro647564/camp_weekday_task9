@@ -1,11 +1,7 @@
 <h1>タスク更新フォーム</h1>
-<%= form_with model: @task, local: true do |form| %>
-  <% @task.errors.full_messages.each do |message| %>
-    <div class="form-error">
-      <%= message %>
-    </div>
-  <% end %>
-  
+<%= render 'shared/error' %>
+
+<%= form_with model: @task, local: true do |form| %>  
 <p>
   <%= form.label :タスク名 %><br>
   <%= form.text_field :title %>
