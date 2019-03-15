@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @tasks = Task.order(created_at: :desc).where(is_display: true).limit(5)
+    @tasks = Task.where(is_display: true).order(created_at: :desc).limit(5)
   end
 
   def show
