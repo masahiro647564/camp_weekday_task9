@@ -1,0 +1,23 @@
+<h1>タスク更新フォーム</h1>
+<%= render 'shared/error' %>
+
+<%= form_with model: @task, local: true do |form| %>  
+  <p>
+    <%= form.label :タスク名 %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :タスクメモ %><br>
+    <%= form.text_area :memo %>
+  </p>
+  <p>
+    <%= form.label :状態 %>
+    <%= form.select :status, [["下書き", "draft"], ["公開", "published"], ["アーカイブ", "archieved" ]],class: "form-control" %>
+  </p>
+
+  <%= form.submit :更新 %><br>
+<% end %>
+
+<p>
+  <%= link_to '一覧', tasks_path %>
+</p>
